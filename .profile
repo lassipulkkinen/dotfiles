@@ -12,7 +12,6 @@ export PATH="$PATH:$XDG_DATA_HOME/gem/bin"
 export PATH="$PATH:$XDG_DATA_HOME/go/bin"
 export PATH="$PATH:$XDG_DATA_HOME/npm/bin"
 
-export BROWSER="setsid -f firefox"
 export EDITOR=nvim
 
 export STATUS_COMMAND=i3status
