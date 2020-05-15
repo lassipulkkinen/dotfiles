@@ -1,0 +1,48 @@
+# ~/.config/swaylock/config
+# vim: filetype=dosini
+
+# Default to black background
+color=#000000
+
+# Font
+font=Fira Code
+font-size=35
+
+# Indicator dimensions
+indicator-radius=75
+indicator-thickness=5
+
+# Text colors
+text-color=ffffff
+text-clear-color=000000
+text-caps-lock-color=ffffff
+text-ver-color=000000
+text-wrong-color=000000
+
+# Inside colors
+inside-color=00000000
+inside-clear-color=ffffff
+inside-caps-lock-color=00000000
+inside-ver-color=ffffff
+inside-wrong-color=ffffff
+
+# Line colors
+line-color=00000000
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+
+# Ring colors
+ring-color=ffffff44
+ring-clear-color=ffffff
+ring-caps-lock-color=ffffff44
+ring-ver-color=ffffff
+ring-wrong-color=ffffff
+
+# Highlight colors
+key-hl-color=ffffff
+bs-hl-color=ff5555
+
+# Segment separator color
+separator-color=00000000

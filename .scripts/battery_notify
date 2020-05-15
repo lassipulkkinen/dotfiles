@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# ~/.scripts/battery_notify
+# Notifies about low battery level. Intended to be run as a systemd timer.
+# Cron job should work as well, but you'd need to set DBUS_SESSION_BUS_ADDRESS
+# somehow.
+
+notify() {
+  last="$(cat /tmp/battery_notify 2> /dev/null || :)"
+  if [ "$last" != "$2" ]; then
+    notify-send -i battery-caution-symbolic "$1%: $2"
+    echo "$2" > /tmp/battery_notify
+  fi
+}
+
+unnotify() {
+  rm /tmp/battery_notify 2> /dev/null || :
+}
+
+case "$(acpi -b)" in
+  *Discharging*)
+    level="$(acpi -b | sed 's/^.* \([0-9]*\)%.*$/\1/')"
+
+    if [ "$level" -le 5 ]; then
+      notify "$level" "Battery level is critically low!"
+    elif [ "$level" -le 15 ]; then
+      notify "$level" "Battery level is low!"
+    else
+      unnotify
+    fi
+    ;;
+
+  *)
+    unnotify
+    ;;
+esac

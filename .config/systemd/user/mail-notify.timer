@@ -1,0 +1,10 @@
+[Unit]
+Description=Mail Notification Timer
+
+[Timer]
+Unit=mail-notify.service
+OnStartupSec=0
+OnUnitActiveSec=2m
+
+[Install]
+WantedBy=sway-session.target

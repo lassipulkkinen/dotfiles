@@ -1,0 +1,320 @@
+# ~/.config/sway/config
+# vim: filetype=config tabstop=4 shiftwidth=4
+
+# Systemd target
+    exec systemctl --user import-environment \
+        && systemctl --user start sway-session.target
+
+# Terminal emulator preference
+    set $terminal alacritty
+
+# Nag command
+    set $nag exec swaynagmode
+
+# Xwayland
+    xwayland enable
+
+# Workspace layout
+    workspace_layout tabbed
+
+# Keybindings
+
+    # Modifier key
+        set $mod Mod4
+
+    # Primary directional keys
+        set $left a
+        set $down s
+        set $up w
+        set $right d
+
+    # Program launchers
+
+        # Terminal
+            bindsym $mod+Return exec $terminal
+
+        # Dmenu program launcher
+            bindsym $mod+q exec dmenu-wl_run -p '$ '
+
+        # Dmenu program launcher (in terminal)
+            bindsym $mod+Ctrl+q \
+                exec ~/.scripts/dmenu-wl_run_term $terminal -p '$ '
+
+        # Dmenu manual opener
+            bindsym $mod+m exec ~/.scripts/dmenu-wl_man $terminal -e man
+
+        # Browser (firefox)
+            bindsym $mod+Mod1+w exec firefox
+
+        # File manager (ranger)
+            bindsym $mod+Mod1+f exec $terminal -e ranger
+
+        # Mail client (neomutt)
+            bindsym $mod+Mod1+m exec $terminal -e neomutt
+
+        # MPD client (ncmpcpp)
+            bindsym $mod+alt+n exec $terminal -e ncmpcpp
+
+    # Reload configuration
+        bindsym $mod+Shift+c reload
+
+    # Log out
+        bindsym $mod+Shift+e \
+            $nag -t info -m 'Log out of sway?' -B 'Log out' 'swaymsg exit'
+
+    # Switch wallpaper
+        bindsym $mod+b exec ~/.scripts/wallpaper 1
+        bindsym $mod+Shift+b exec ~/.scripts/wallpaper -1
+
+    # Take a screenshot
+        bindsym Print exec ~/.scripts/dmenu-wl_screenshot
+
+    # Laptop control keys
+
+        # PulseAudio controls
+            bindsym XF86AudioRaiseVolume \
+                exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+            bindsym XF86AudioLowerVolume \
+                exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+            bindsym XF86AudioMute \
+                exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+        # Screen brightness controls
+            bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+            bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+    # Media player controls
+        bindsym $mod+p exec mpc toggle
+        bindsym $mod+o exec mpc next
+        bindsym $mod+i exec mpc prev
+
+    # Change focus
+
+        # Primary directional keys
+            bindsym $mod+$left focus left
+            bindsym $mod+$down focus down
+            bindsym $mod+$up focus up
+            bindsym $mod+$right focus right
+
+        # Arrow keys
+            bindsym $mod+Left focus left
+            bindsym $mod+Down focus down
+            bindsym $mod+Up focus up
+            bindsym $mod+Right focus right
+
+        # Tiling / floating
+            bindsym $mod+space focus mode_toggle
+
+        # Parent
+            bindsym $mod+x focus parent
+
+        # Child
+            bindsym $mod+Shift+x focus child
+
+    # Modify focus
+
+        # Primary directional keys
+            bindsym $mod+Shift+$left move left
+            bindsym $mod+Shift+$down move down
+            bindsym $mod+Shift+$up move up
+            bindsym $mod+Shift+$right move right
+
+        # Arrow keys
+            bindsym $mod+Shift+Left move left
+            bindsym $mod+Shift+Down move down
+            bindsym $mod +Shift+Up move up
+            bindsym $mod+Shift+Right move right
+
+        # Mouse
+            floating_modifier $mod
+
+        # Splitting mode
+
+            # Horizontal
+                bindsym $mod+z split h
+
+            # Vertical
+                bindsym $mod+c split v
+
+        # Layout
+
+            # Split / tabbed
+                bindsym $mod+e layout toggle split tabbed
+
+            # Split direction
+                bindsym $mod+Ctrl+e layout toggle split
+
+        # Tiling / floating
+            bindsym $mod+Shift+space floating toggle
+
+        # Fullscreen
+            bindsym $mod+f fullscreen toggle
+
+        # Sticky
+            bindsym $mod+Ctrl+s sticky toggle
+
+        # Kill
+            bindsym $mod+Shift+q kill
+
+    # Gaps
+
+        # Gap adjustment increment
+            set $gap_increment 15
+
+        # Adjust inner gap size
+            bindsym $mod+g gaps inner current plus $gap_increment
+            bindsym $mod+Shift+g gaps inner current minus $gap_increment
+
+        # Adjust outer gap size
+            bindsym $mod+h gaps outer current plus $gap_increment
+            bindsym $mod+Shift+h gaps outer current minus $gap_increment
+
+    # Workspaces
+
+        # Workspace names
+            set $ws1 "1"
+            set $ws2 "2"
+            set $ws3 "3"
+            set $ws4 "4"
+            set $ws5 "5"
+            set $ws6 "6"
+            set $ws7 "7"
+            set $ws8 "8"
+            set $ws9 "9"
+            set $ws10 "10"
+
+        # Switch to workspace
+            bindsym $mod+1 workspace $ws1
+            bindsym $mod+2 workspace $ws2
+            bindsym $mod+3 workspace $ws3
+            bindsym $mod+4 workspace $ws4
+            bindsym $mod+5 workspace $ws5
+            bindsym $mod+6 workspace $ws6
+            bindsym $mod+7 workspace $ws7
+            bindsym $mod+8 workspace $ws8
+            bindsym $mod+9 workspace $ws9
+            bindsym $mod+0 workspace $ws10
+
+        # Move window to workspace
+            bindsym $mod+Shift+1 move container to workspace $ws1
+            bindsym $mod+Shift+2 move container to workspace $ws2
+            bindsym $mod+Shift+3 move container to workspace $ws3
+            bindsym $mod+Shift+4 move container to workspace $ws4
+            bindsym $mod+Shift+5 move container to workspace $ws5
+            bindsym $mod+Shift+6 move container to workspace $ws6
+            bindsym $mod+Shift+7 move container to workspace $ws7
+            bindsym $mod+Shift+8 move container to workspace $ws8
+            bindsym $mod+Shift+9 move container to workspace $ws9
+            bindsym $mod+Shift+0 move container to workspace $ws10
+
+    # Resize mode
+
+        # Resize increment
+            set $resize_increment 10 px or 10 ppt
+
+        # Enter resize mode
+            bindsym $mod+r mode "resize"
+
+        mode "resize" {
+
+            # Primary directional keys
+                bindsym $left resize shrink width $resize_increment
+                bindsym $down resize grow height $resize_increment
+                bindsym $up resize shrink height $resize_increment
+                bindsym $right resize grow width $resize_increment
+
+            # Arrow keys
+                bindsym Left resize shrink width $resize_increment
+                bindsym Down resize grow height $resize_increment
+                bindsym Up resize shrink height $resize_increment
+                bindsym Right resize grow width $resize_increment
+
+            # Exit resize mode
+                bindsym Return mode "default"
+                bindsym Escape mode "default"
+                bindsym $mod+r mode "default"
+
+        }
+
+    # Swaynag mode
+
+        mode "nag" {
+            # Return to default mode
+                bindsym Ctrl+d mode "default"
+
+            # Exit
+                bindsym Ctrl+c $nag --exit
+                bindsym q $nag --exit
+                bindsym Escape $nag --exit
+                bindsym Return $nag --confirm
+
+            # Primary directional keys
+                bindsym $left $nag --select prev
+                bindsym $right $nag --select next
+
+            # Arrow keys
+                bindsym Left $nag --select prev
+                bindsym Right $nag --select next
+        }
+
+# Bar
+
+    bar 0 {
+        # Mode
+            mode overlay
+
+        # Geometry
+            position top
+            height 40
+            gaps 20 0 0 20
+            status_edge_padding 330
+
+        # Contents
+            font Fira Code 10
+            workspace_buttons no
+            tray_output none
+
+        # Colors
+            colors {
+                background #00000000
+                binding_mode #00000000 #ffffff #000000
+                separator #ffffff88
+            }
+    }
+
+# Graphics
+
+    # Output
+        output * {
+            scale_filter nearest
+            background ~/.config/wallpaper fill
+        }
+
+    # Font
+        font pango:monospace 8
+
+    # Borders
+        default_border pixel 1
+        hide_edge_borders --i3 smart
+
+    # Gaps
+        gaps inner 0
+
+    # Decorations
+      client.focused #ffffff88 #ffffff88 #000000 #ffffffcc
+      client.focused_inactive #aaaaaa88 #aaaaaa88 #000000 #aaaaaa88
+      client.unfocused #44444488 #44444488 #ffffff
+
+# Input
+
+    # Keyboard layout
+        input type:keyboard xkb_layout fi
+
+    # Mouse
+        input type:pointer pointer_accel 0.0
+
+    # Touchpad
+        input type:touchpad tap enabled
+        #input type:touchpad accel_profile adaptive
+        input type:touchpad pointer_accel 0.0
+        input type:touchpad scroll_factor 0.5

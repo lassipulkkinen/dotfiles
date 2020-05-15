@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# ~/.scripts/autohide_status
+# Hides swaybar status when non-floating windows are visible. The STATUS_COMMAND
+# environment variable is used to determine the status command.
+
+set -e
+
+while :; do
+  swaymsg -t get_workspaces
+  swaymsg -qt subscribe '["workspace", "window"]'
+done \
+  | jq --unbuffered 'map(select(.visible) | .representation | . == null or test("^(?:[HVTS]\\[|])+$")) | all' \
+  | while read -r show; do
+      if [ "$show" = true ]; then
+        swaymsg -p bar 0 status_command "$STATUS_COMMAND"
+      else
+        swaymsg -p bar 0 status_command -
+      fi
+    done

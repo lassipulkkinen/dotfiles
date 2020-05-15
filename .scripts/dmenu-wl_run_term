@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# ~/.scripts/dmenu-wl_run_term <terminal> [dmenu_args...]
+# Like dmenu-wl_run, but runs the command in a terminal.
+
+terminal=$1
+
+shift
+program=$(dmenu-wl_path | dmenu-wl "$@")
+$terminal -e "$program" &

@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# ~/.scripts/wallpaper [step]
+# Cycles through wallpapers. The WALLPAPER_PATH environment variable is
+# interpreted as a colon-separated list of directories to search in.
+
+if ! [ "$WALLPAPER_PATH" ]; then
+  echo "error: WALLPAPER_PATH is not set." >&2
+  exit 1
+fi
+
+if [ "$#" = 0 ]; then
+  step=0
+else
+  step="$1"
+fi
+
+current="$(readlink -f -- "$XDG_CONFIG_HOME/wallpaper")"
+
+OLDIFS="$IFS"
+IFS=:
+set -f
+wallpapers="$(
+  find $WALLPAPER_PATH -maxdepth 1 -type f -print0 \
+    | sort -z \
+    | xargs -0 readlink -f --
+)"
+IFS="$OLDIFS"
+
+current_line="$(echo "$wallpapers" | grep -nx "$current" | cut -d: -f1)"
+
+lines="$(echo "$wallpapers" | wc -l)"
+next_line="$((current_line + step - 1))"
+next_line="$(((next_line % lines  + lines) % lines + 1))"
+
+next="$(echo "$wallpapers" | sed "${next_line}q;d")"
+
+echo "$next"
+ln -sfT -- "$next" "$XDG_CONFIG_HOME/wallpaper"
+swaymsg -q output '*' bg "$XDG_CONFIG_HOME/wallpaper" fill

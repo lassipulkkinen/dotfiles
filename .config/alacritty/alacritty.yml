@@ -1,0 +1,87 @@
+env:
+  TERM: xterm-256color
+
+window:
+  dimensions:
+    columns: 80
+    lines: 30
+
+  padding:
+    x: 1
+    y: 0
+
+  decorations: none
+  title: Terminal
+  gtk_theme_variant: None
+
+scrolling:
+  history: 10000
+  multiplier: 12
+
+font:
+  normal:
+    family: Fira Code
+    style: Regular
+
+  bold:
+    style: Bold
+
+  # This is a (hopefully) temporary solution,
+  # see https://github.com/mozilla/Fira/issues/38.
+
+  italic:
+    family: Hack
+    style: Italic
+
+  bold_italic:
+    family: Hack
+    style: Bold Italic
+
+  size: 10.0
+
+  offset:
+    x: 0
+    y: 3
+
+  glyph_offset:
+    x: 0
+    y: 0
+
+draw_bold_text_with_bright_colors: true
+
+colors:
+  primary:
+    background: '0x000000'
+    foreground: '0xe4eeff'
+
+  normal:
+    black:   '0x282c34'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xe5c07b'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xabb2bf'
+
+  bright:
+    black:   '0x484f5e'
+    red:     '0xff7b85'
+    green:   '0xb4e68f'
+    yellow:  '0xffd689'
+    blue:    '0x72c0ff'
+    magenta: '0xe48aff'
+    cyan:    '0x65d6e5'
+    white:   '0xe4eeff'
+
+background_opacity: 0.8
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: false
+
+dynamic_title: true
+
+cursor:
+  style: Block
+  unfocused_hollow: true

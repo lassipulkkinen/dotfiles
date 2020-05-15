@@ -1,0 +1,15 @@
+[Unit]
+Description=Automatically Suspend On Idle
+Documentation=man:swayidle(1)
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1s
+ExecStart=swayidle -w \
+  timeout 1800 'systemctl suspend' \
+  before-sleep '~/.scripts/lock'
+
+[Install]
+WantedBy=sway-session.target

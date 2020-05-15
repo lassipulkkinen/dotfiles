@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# ~/.scripts/dmenu-wl_man [command..]
+# Selects a manual page using dmenu-wl.
+# The optional `command` argument may be used to replace the `man` command,
+# which it defaults to.
+# For example, `path/to/dmenu-wl_man xterm -e man` runs `man` in a new `xterm`.
+
+! [ "$#" ] && man="man"
+
+apropos -lw '*' \
+  | sed 's/).*$/)/' \
+  | dmenu-wl \
+  | sed 's/^\([^ ]*\) (\([^)]*\))$/\2 \1\n/' \
+  | {
+      read -r section page && "$@" $man "$section" "$page"
+    }

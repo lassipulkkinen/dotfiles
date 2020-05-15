@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# ~/.scripts/mail_notify
+# Synchronizes mailboxes and notifies about new mail.
+# Intended to be run as a systemd timer. Cron job should work as well, but you'd
+# need to set DBUS_SESSION_BUS_ADDRESS somehow.
+
+last_sync="$(stat -c%Z "$XDG_CACHE_HOME/mail_notify/last_sync" || echo 0)"
+
+mkdir -p "$XDG_CACHE_HOME/mail_notify"
+touch "$XDG_CACHE_HOME/mail_notify/last_sync"
+
+mbsync -ac "$XDG_CONFIG_HOME/mbsync/mbsyncrc"
+notmuch new 2> /dev/null
+
+notmuch search --format=json tag:unread \
+  | jq -r '.[] | .timestamp, .authors, (.subject | gsub("\\s+"; " "))' \
+  | while read -r timestamp && read -r authors && read -r subject; do
+      if [ "$timestamp" -gt "$last_sync" ]; then
+        notify-send -i mail-unread-symbolic "$authors" "$subject"
+      fi
+    done

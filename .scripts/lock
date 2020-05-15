@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# ~/.scripts/lock
+# Locks the screen. The STATUS_COMMAND environment variable is used to determine
+# the status command.
+
+# Using TIFF format as ImageMagick seems to write it a lot faster than PNG.
+image="$(mktemp lock-wallpaper.XXXXXXXXXX.tiff)"
+convert "$XDG_CONFIG_HOME/wallpaper" +level 0%,20% "$image"
+
+swaymsg bar 0 status_command "$STATUS_COMMAND"
+swaylock -fi "$image"
+
+sleep 1
+
+rm "$image"

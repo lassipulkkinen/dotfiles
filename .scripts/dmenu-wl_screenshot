@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# ~/.scripts/dmenu-wl_screenshot
+# Takes a screenshot and shows a dmenu prompt to choose a filename.
+
+tmpfile="$(mktemp)"
+
+grim -- "$tmpfile" \
+  && file="$(
+    echo "screen-$(date +%Y-%m-%d-%H.%M.%S)" \
+      | dmenu-wl -p "save screenshot as:"
+  )" \
+  && mv -- "$tmpfile" "$HOME/Pictures/screenshots/$file.png" \
+  || rm -- "$tmpfile"

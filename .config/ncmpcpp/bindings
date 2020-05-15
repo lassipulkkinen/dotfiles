@@ -1,0 +1,451 @@
+# ~/.config/ncmpcpp/bindings
+
+# Mouse
+
+def_key "mouse"
+  mouse_event
+
+# Movement
+
+## Scroll one
+
+def_key "j"
+  scroll_down
+
+def_key "k"
+  scroll_up
+
+## Scroll album
+
+def_key "["
+  scroll_up_album
+
+def_key "]"
+  scroll_down_album
+
+## Scroll artist
+
+def_key "{"
+  scroll_up_artist
+
+def_key "}"
+  scroll_down_artist
+
+## Scroll page
+
+def_key "ctrl-f"
+  page_down
+
+def_key "ctrl-b"
+  page_up
+
+## Top / bottom
+
+def_key "g"
+  move_home
+
+def_key "G"
+  move_end
+
+## Directories
+
+def_key "enter"
+  enter_directory
+
+def_key "backspace"
+  jump_to_parent_directory
+
+def_key "ctrl-h"
+  jump_to_parent_directory
+
+## Info
+
+def_key "i"
+  show_song_info
+
+def_key "I"
+  show_artist_info
+
+## Search
+
+def_key "/"
+  find
+
+def_key "/"
+  find_item_forward
+
+def_key "?"
+  find
+
+def_key "?"
+  find_item_backward
+
+def_key "."
+  next_found_item
+
+def_key ","
+  previous_found_item
+
+def_key "w"
+  toggle_find_mode
+
+def_key "y"
+  start_searching
+
+def_key "ctrl-_"
+  select_found_items
+
+## Jump
+
+def_key "P"
+  jump_to_playlist_editor
+
+def_key "M"
+  jump_to_media_library
+
+def_key "E"
+  jump_to_tag_editor
+
+def_key "o"
+  jump_to_playing_song
+
+## Columns
+
+def_key "h"
+  previous_column
+
+def_key "l"
+  next_column
+
+## Screens
+
+def_key "h"
+  master_screen
+
+def_key "l"
+  slave_screen
+
+## Views
+
+def_key "tab"
+  next_screen
+
+def_key "shift-tab"
+  previous_screen
+
+def_key "1"
+  show_playlist
+
+def_key "2"
+  show_browser
+
+def_key "2"
+  change_browse_mode
+
+def_key "3"
+  show_search_engine
+
+def_key "3"
+  reset_search_engine
+
+def_key "4"
+  show_media_library
+
+def_key "4"
+  toggle_media_library_columns_mode
+
+def_key "5"
+  show_playlist_editor
+
+def_key "6"
+  show_tag_editor
+
+def_key "7"
+  show_outputs
+
+def_key "8"
+  show_visualizer
+
+def_key "="
+  show_clock
+
+def_key "f1"
+  show_help
+
+def_key "@"
+  show_server_info
+
+# Playback control
+
+## State
+
+def_key "s"
+  stop
+
+def_key "p"
+  pause
+
+## Seeking
+
+def_key ">"
+  next
+
+def_key "<"
+  previous
+
+def_key "f"
+  seek_forward
+
+def_key "b"
+  seek_backward
+
+## Replay
+
+def_key "ctrl-h"
+  replay_song
+
+def_key "backspace"
+  replay_song
+
+## Ordering
+
+def_key "r"
+  toggle_repeat
+
+def_key "z"
+  toggle_random
+
+def_key "y"
+  toggle_single
+
+## Consume
+
+def_key "R"
+  toggle_consume
+
+## Crossfade
+
+def_key "x"
+  toggle_crossfade
+
+def_key "X"
+  set_crossfade
+
+## Volume
+
+def_key "+"
+  volume_up
+
+def_key "-"
+  volume_down
+
+## Replay gain
+
+def_key "Y"
+  toggle_replay_gain_mode
+
+# Item
+
+## Select
+
+def_key "m"
+  select_item
+
+def_key "ctrl-v"
+  select_range
+
+def_key "v"
+  reverse_selection
+
+def_key "V"
+  remove_selection
+
+def_key "B"
+  select_album
+
+## Play
+
+def_key "enter"
+  play_item
+
+## Add to queue
+
+def_key "space"
+  add_item_to_playlist
+
+def_key "T"
+  toggle_add_mode
+
+def_key "ctrl-t"
+  add_random_items
+
+## Add to playlist
+
+def_key "A"
+  add
+
+def_key "a"
+  add_selected_items
+
+## Move
+
+def_key "J"
+  move_sort_order_down
+
+def_key "J"
+  move_selected_items_down
+
+def_key "K"
+  move_sort_order_up
+
+def_key "K"
+  move_selected_items_up
+
+def_key "ctrl-m"
+  move_selected_items_to
+
+## Save
+
+def_key "S"
+  save_playlist
+
+def_key "y"
+  save_tag_changes
+
+## Edit
+
+def_key "e"
+  edit_song
+
+def_key "e"
+  edit_library_tag
+
+def_key "e"
+  edit_library_album
+
+def_key "e"
+  edit_directory_name
+
+def_key "e"
+  edit_playlist_name
+
+## Delete
+
+def_key "d"
+  delete_playlist_items
+
+def_key "d"
+  delete_browser_items
+
+def_key "d"
+  delete_stored_playlist
+
+## Priority
+
+def_key "ctrl-p"
+  set_selected_items_priority
+
+# Miscellaneous
+
+## Command
+
+def_key ":"
+  execute_command
+
+def_key "enter"
+  run_action
+
+## Mouse
+
+def_key "|"
+  toggle_mouse
+
+## Bitrate visibility
+
+def_key "#"
+  toggle_bitrate_visibility
+
+## Outputs
+
+def_key "enter"
+  toggle_output
+
+## Visualizer
+
+def_key "space"
+  toggle_visualization_type
+
+## Update database
+
+def_key "u"
+  update_database
+
+## Playlist ordering
+
+def_key "Z"
+  shuffle
+
+def_key "ctrl-s"
+  sort_playlist
+
+def_key "ctrl-r"
+  reverse_playlist
+
+## Sort mode
+
+def_key "ctrl-s"
+  toggle_browser_sort_mode
+
+def_key "ctrl-s"
+  toggle_media_library_sort_mode
+
+## Filter
+
+def_key "ctrl-f"
+  apply_filter
+
+## Clear
+
+def_key "c"
+  clear_playlist
+
+def_key "c"
+  clear_main_playlist
+
+## Crop
+
+def_key "C"
+  crop_playlist
+
+def_key "C"
+  crop_main_playlist
+
+## Centering
+
+def_key "U"
+  toggle_playing_song_centering
+
+## Display mode
+
+def_key "D"
+  toggle_display_mode
+
+## Interface mode
+
+def_key "F"
+  toggle_interface
+
+## Album separators
+
+def_key "!"
+  toggle_separators_between_albums
+
+## Library tag type
+
+def_key "t"
+  toggle_library_tag_type
+
+## Quit
+
+def_key "q"
+  quit

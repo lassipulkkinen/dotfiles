@@ -1,0 +1,8 @@
+[Unit]
+Description=Synchronize Mailboxes and Notify If New Mail Has Arrived
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.scripts/mail_notify
