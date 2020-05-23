@@ -9,8 +9,10 @@
 !/.config/mako
 !/.config/mpd
 !/.config/ncmpcpp
+!/.config/npm
 !/.config/nvim
 /.config/nvim/.netrwhist
+!/.config/python
 !/.config/sway
 !/.config/swaylock
 !/.config/swaynag
