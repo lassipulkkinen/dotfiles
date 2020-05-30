@@ -1,6 +1,4 @@
-#
 # ~/.profile
-#
 
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -42,6 +40,6 @@ export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 export MOZ_ENABLE_WAYLAND=1
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-if [ "$SHELL" = "bash" ]; then
-  source .bashrc
+if [ "$(basename "$SHELL")" = "bash" ]; then
+  . ~/.bashrc
 fi
