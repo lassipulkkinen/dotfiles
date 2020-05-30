@@ -9,6 +9,7 @@ source /usr/share/vim/vim82/defaults.vim
 call plug#begin('~/.local/share/nvim/site/plugged')
 
 Plug 'joshdick/onedark.vim'
+Plug 'bfrg/vim-cpp-modern'
 Plug 'Zaptic/elm-vim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'pangloss/vim-javascript'
