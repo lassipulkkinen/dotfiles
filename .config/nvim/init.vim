@@ -138,3 +138,7 @@ autocmd FileType c,elm,java,javascript,python,ruby,rust,tex,vim
 
 autocmd FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+" Close preview windows when leaving insert mode
+
+autocmd InsertLeave * pclose
