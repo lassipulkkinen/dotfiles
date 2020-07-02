@@ -1,9 +1,5 @@
 " ~/.config/nvim/init.vim
 
-" Include system defaults
-
-source /usr/share/vim/vim82/defaults.vim
-
 " Plugins
 
 call plug#begin('~/.local/share/nvim/site/plugged')
@@ -18,6 +14,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dense-analysis/ale'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
