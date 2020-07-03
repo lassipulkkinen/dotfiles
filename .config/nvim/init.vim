@@ -6,7 +6,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
 
 Plug 'joshdick/onedark.vim'
 Plug 'bfrg/vim-cpp-modern'
-Plug 'Zaptic/elm-vim'
+Plug 'andys8/elm-vim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'pangloss/vim-javascript'
 Plug 'lervag/vimtex'
@@ -71,6 +71,7 @@ highlight ALEErrorSign gui=bold guifg=#282C34 guibg=#E06C75
 highlight link ALEStyleWarningSign ALEWarningSign
 highlight link ALEStyleErrorSign ALEErrorSign
 highlight ALEInfoSign gui=bold guifg=#282C34 guibg=#ABB2BF
+highlight link elmAlias Typedef
 
 " Yes, this counts as a 'highlighting tweak'
 set nohlsearch
@@ -80,6 +81,7 @@ set nohlsearch
 let g:ale_linters = {
   \ 'c': ['ccls'],
   \ 'cpp': ['ccls'],
+  \ 'elm': ['elm_ls'],
   \ 'python': ['pyls', 'flake8'],
   \ 'rust': ['rls'],
   \}
