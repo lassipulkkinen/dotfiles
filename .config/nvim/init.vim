@@ -119,6 +119,7 @@ imap <silent> <F1> <ESC>:NERDTreeToggleVCS %:p:h<CR>
 nmap <silent> <F2> :FZF<CR>
 
 nmap <silent> <F3> :ALEGoToDefinition<CR>
+nmap <silent> <expr> <F4> &previewwindow ? ":quit<CR>" : ":ALEDetail<CR>"
 
 " Tab completion
 imap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
