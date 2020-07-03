@@ -127,6 +127,7 @@ imap <expr> <S-TAB> pumvisible() ? "\<C-p>" : ""
 imap <expr> <C-SPACE> deoplete#manual_complete()
 
 " Treat *.h files as C, not C++. I'm not going to open a C++ file anyway...
+
 autocmd BufNewFile,BufRead *.h set filetype=c
 
 " Remove trailing whitespace from source files on save
@@ -142,3 +143,10 @@ autocmd FileType fzf set laststatus=0 noshowmode noruler
 " Close preview windows when leaving insert mode
 
 autocmd InsertLeave * pclose
+
+" Restore last cursor position (from :h restore-cursor)
+
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+  \ |   exe "normal! g`\""
+  \ | endif
