@@ -37,6 +37,10 @@ set number
 set relativenumber
 set signcolumn=no
 
+" Enable terminal window title
+
+set title
+
 " Enable hidden buffers
 
 set hidden
