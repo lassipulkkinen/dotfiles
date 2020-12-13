@@ -162,6 +162,10 @@
         # Kill
             bindsym $mod+Shift+q kill
 
+    # Scratchpad
+        bindsym $mod+t scratchpad show
+        bindsym $mod+Shift+t move scratchpad
+
     # Gaps
 
         # Gap adjustment increment
