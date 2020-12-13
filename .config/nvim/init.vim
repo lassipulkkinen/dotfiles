@@ -14,6 +14,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dense-analysis/ale'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'cespare/vim-toml'
 
 call plug#end()
@@ -120,7 +121,7 @@ nnoremap <M-l> <C-w>L
 nmap <silent> <F1> :NERDTreeToggleVCS %:p:h<CR>
 imap <silent> <F1> <ESC>:NERDTreeToggleVCS %:p:h<CR>
 
-nmap <silent> <F2> :FZF<CR>
+nmap <silent> <F2> :GitFiles?<CR>
 
 nmap <silent> <F3> :ALEGoToDefinition<CR>
 nmap <silent> <expr> <F4> &previewwindow ? ":quit<CR>" : ":ALEDetail<CR>"
