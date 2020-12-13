@@ -12,6 +12,7 @@ window:
 
   decorations: none
   title: Terminal
+  dynamic_title: true
   gtk_theme_variant: None
 
 scrolling:
@@ -79,8 +80,6 @@ background_opacity: 0.8
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: false
-
-dynamic_title: true
 
 cursor:
   style: Block
