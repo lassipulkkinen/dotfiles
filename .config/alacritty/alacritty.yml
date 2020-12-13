@@ -84,3 +84,9 @@ selection:
 cursor:
   style: Block
   unfocused_hollow: true
+
+mouse_bindings:
+  - { mouse: Middle, action: None }
+
+key_bindings:
+  - { key: Return, mods: Control, action: SpawnNewInstance }
