@@ -3,4 +3,4 @@ Description=Notify If Battery Level is Low
 
 [Service]
 Type=oneshot
-ExecStart=%h/.scripts/battery_notify
+ExecStart=%h/.local/bin/battery_notify

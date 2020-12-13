@@ -5,6 +5,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CURRENT_DESKTOP="$XDG_SESSION_DESKTOP"
 
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$XDG_DATA_HOME/cargo/bin"
 export PATH="$PATH:$XDG_DATA_HOME/gem/bin"
 export PATH="$PATH:$XDG_DATA_HOME/go/bin"

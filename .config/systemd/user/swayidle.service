@@ -9,7 +9,7 @@ Restart=always
 RestartSec=1s
 ExecStart=swayidle -w \
   timeout 1800 'systemctl suspend' \
-  before-sleep '~/.scripts/lock'
+  before-sleep '~/.local/bin/lock'
 
 [Install]
 WantedBy=sway-session.target

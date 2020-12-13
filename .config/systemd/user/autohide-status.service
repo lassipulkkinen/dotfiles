@@ -1,12 +1,13 @@
 [Unit]
 Description=Automatically Hide Status Bar in Sway
 PartOf=sway-session.target
+StartLimitIntervalSec=0
 
 [Service]
 Type=simple
 Restart=always
 RestartSec=1s
-ExecStart=%h/.scripts/autohide_status
+ExecStart=%h/.local/bin/autohide_status
 
 [Install]
 WantedBy=sway-session.target

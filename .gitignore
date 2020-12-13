@@ -18,4 +18,6 @@
 !/.config/swaynag
 !/.config/systemd
 /.config/systemd/user/*.wants
-!/.scripts
+!/.local
+/.local/*
+!/.local/bin

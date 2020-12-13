@@ -38,10 +38,10 @@
 
         # Dmenu program launcher (in terminal)
             bindsym $mod+Ctrl+q \
-                exec ~/.scripts/dmenu-wl_run_term $terminal -p '$ '
+                exec ~/.local/bin/dmenu-wl_run_term $terminal -p '$ '
 
         # Dmenu manual opener
-            bindsym $mod+m exec ~/.scripts/dmenu-wl_man $terminal -e man
+            bindsym $mod+m exec ~/.local/bin/dmenu-wl_man $terminal -e man
 
         # Browser (firefox)
             bindsym $mod+Mod1+w exec firefox
@@ -63,11 +63,11 @@
             $nag -t info -m 'Log out of sway?' -B 'Log out' 'swaymsg exit'
 
     # Switch wallpaper
-        bindsym $mod+b exec ~/.scripts/wallpaper 1
-        bindsym $mod+Shift+b exec ~/.scripts/wallpaper -1
+        bindsym $mod+b exec ~/.local/bin/wallpaper 1
+        bindsym $mod+Shift+b exec ~/.local/bin/wallpaper -1
 
     # Take a screenshot
-        bindsym Print exec ~/.scripts/dmenu-wl_screenshot
+        bindsym Print exec ~/.local/bin/dmenu-wl_screenshot
 
     # Laptop control keys
 
