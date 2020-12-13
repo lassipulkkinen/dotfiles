@@ -43,6 +43,9 @@
         # Dmenu manual opener
             bindsym $mod+m exec ~/.local/bin/dmenu-wl_man $terminal -e man
 
+        # Dmenu Unicode picker
+            bindsym $mod+u exec ~/.local/bin/dmenu-wl_unicode
+
         # Browser (firefox)
             bindsym $mod+Mod1+w exec firefox
 
