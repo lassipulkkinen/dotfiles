@@ -14,14 +14,14 @@ export PATH="$PATH:$XDG_DATA_HOME/npm/bin"
 export EDITOR=nvim
 
 export STATUS_COMMAND=i3status
-export WALLPAPER_PATH="$HOME/Pictures/wallpapers"
+export WALLPAPER_PATH="$HOME/pictures/wallpapers"
 
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-export ELM_HOME="XDG_DATA_HOME/elm"
+export ELM_HOME="$XDG_DATA_HOME/elm"
 export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export GOPATH="$XDG_DATA_HOME/go"
@@ -38,11 +38,10 @@ export RANDFILE="$XDG_CACHE_HOME/rnd"
 export PYLINTHOME="$XDG_DATA_HOME/pylint"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export TEXMFHOME="$XDG_DATA_HOME/texmf"
+export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
+export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 
 export MOZ_ENABLE_WAYLAND=1
 export _JAVA_AWT_WM_NONREPARENTING=1
-
-if [ "$(basename "$SHELL")" = "bash" ]; then
-  . ~/.bashrc
-fi

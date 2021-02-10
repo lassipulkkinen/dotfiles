@@ -10,5 +10,5 @@ grim -- "$tmpfile" \
     echo "screen-$(date +%Y-%m-%d-%H.%M.%S)" \
       | dmenu-wl -p "save screenshot as:"
   )" \
-  && mv -- "$tmpfile" "$HOME/Pictures/screenshots/$file.png" \
+  && mv -- "$tmpfile" "$HOME/pictures/screenshots/$file.png" \
   || rm -- "$tmpfile"
