@@ -38,7 +38,6 @@ cpu_temperature 0 {
   format = "&#xf2c9; %degrees &#xb0;C"
   format_above_threshold = "&#xf769; %degrees &#xb0;C"
   separator_block_width = 96
-  path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
 }
 
 volume master {
